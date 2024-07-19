@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SliderCardChanger : MonoBehaviour
 {
+    [SerializeField] private Transform _moveObject;
+
     [SerializeField] private SimpleTrainCard _cardTemplate;
 
     [SerializeField] private float _cardChangeDuration;
@@ -58,7 +60,7 @@ public class SliderCardChanger : MonoBehaviour
             int cardIndex = i; // Ћокальна€ копи€ дл€ использовани€ в замыкании
 
             _sequence.Append(
-                _cardTemplate.transform.DOMove(transform.position + Vector3.down * _moveDistance, _cardChangeDuration)
+                _moveObject.transform.DOMove(transform.position + Vector3.down * _moveDistance, _cardChangeDuration)
                 .OnComplete(() =>
                 {
                     _cardTemplate.SetCard(card);
@@ -69,7 +71,7 @@ public class SliderCardChanger : MonoBehaviour
             _sequence.AppendInterval(_beforeSoundWaitDuratio);
 
             _sequence.Append(
-                _cardTemplate.transform.DOMove(Vector3.zero, _cardChangeDuration)
+                _moveObject.transform.DOMove(Vector3.zero, _cardChangeDuration)
                 .OnComplete(() =>
                 {
                     _cardTemplate.PlaySound();

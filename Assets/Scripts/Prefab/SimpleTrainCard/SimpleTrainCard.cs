@@ -1,16 +1,15 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class SimpleTrainCard : MonoBehaviour
 {
-    private SpriteRenderer _spriteRenderer;
-    private AudioSource _audioSource;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private AudioSource _audioSource;
+
     private SimpleTrainCardScriptableObject _card;
 
     private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
        _audioSource = Camera.main.GetComponent<AudioSource>();
     }
 
