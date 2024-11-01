@@ -7,18 +7,18 @@ using UnityEngine;
 
 public class SimpleCardTagsValidateTest : MonoBehaviour, ISceneTest
 {
-    [SerializeField] private DebugSingleton _debugSingleton;
+    [SerializeField] private CardsManagerSingleton _cardsManager;
     public string Name => nameof(SimpleCardTagsValidateTest);
 
-    public bool CheckTest()
+    public bool IsPassed()
     {
-        var cards = _debugSingleton.SimpleTrainCards;
+        var cards = _cardsManager.SimpleTrainCards;
 
         foreach (var card in cards)
         {
             foreach (var tag in card.Tags)
             {
-                if (_debugSingleton.SimpleCardsTags.Contains(tag))
+                if (_cardsManager.AllCardTags.Contains(tag))
                     continue;
 
                 Debug.LogError($"<color=red>Card name: \"{card.PrefabName}\".\nTag \"{tag}\", not exist in debugManager</color>");

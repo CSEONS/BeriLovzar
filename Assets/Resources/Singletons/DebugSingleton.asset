@@ -12,10 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6158917ec60d0438d1fe1c97c41709, type: 3}
   m_Name: DebugSingleton
   m_EditorClassIdentifier: 
-  _pathToSimpleTrainCardsScriptableObjects: 
-  _simpleTrainCardTags:
-  - animals
-  - cloth
-  - dinnerware
-  - fruits
-  - tools
+  _tests: []

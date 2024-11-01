@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cb9478991310b4a804841b1a68121d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debugSingleton: {fileID: 11400000, guid: 2050e048c7355a34a91e9db52be001a8, type: 2}
+  _cardsManager: {fileID: 11400000, guid: 78ea4769c5cd96546bbe3a42b866ad3c, type: 2}
 --- !u!1 &408234554
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cabd40775f34104b95c69041b16fb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debugSingleton: {fileID: 11400000, guid: 2050e048c7355a34a91e9db52be001a8, type: 2}
   _tests:
   - {fileID: 120892359}
   - {fileID: 525019431}
@@ -260,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3fb5b93a258794bb985918ff65e8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debugSingleton: {fileID: 11400000, guid: 2050e048c7355a34a91e9db52be001a8, type: 2}
+  _cardsManager: {fileID: 11400000, guid: 78ea4769c5cd96546bbe3a42b866ad3c, type: 2}
 --- !u!1 &1093884516
 GameObject:
   m_ObjectHideFlags: 0

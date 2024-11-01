@@ -30,6 +30,13 @@ class LogBuilder
         return this;
     }
 
+    public LogBuilder AddLogSuccess(object message)
+    {
+        _sbLogText.Append($"<color=green>{message}</color>\n");
+
+        return this;
+    }
+
     public LogBuilder AddLogWarning(object message)
     {
         _sbLogWarningText.Append($"<color=yellow>{message}</color>\n");
@@ -42,7 +49,7 @@ class LogBuilder
         return this;
     }
 
-    public void Print()
+    public void Build()
     {
         if(_sbLogText.Length > 0)
             Debug.Log(_sbLogText.ToString());

@@ -5,18 +5,24 @@ class SimpleCardPropertiesValidateTest : MonoBehaviour, ISceneTest
 {
     public string Name => nameof(SimpleCardPropertiesValidateTest);
 
-    [SerializeField] private DebugSingleton _debugSingleton;
+    [SerializeField] private CardsManagerSingleton _cardsManager;
 
-    public bool CheckTest()
+    public bool IsPassed()
     {
-        var cards = _debugSingleton.SimpleTrainCards;
-        var logMessageBuilder = new LogBuilder();
+        var cards = _cardsManager.SimpleTrainCards;
+        var logBuilder = new LogBuilder();
 
         foreach (var card in cards)
         {
             if (card == null)
             {
-                logMessageBuilder.AddLogError($"The card is Null");
+                if (logBuilder.HaveErrorLogs is false)
+                {
+                    logBuilder.AddLogError($"==Info==");
+                    logBuilder.AddLogError($"Test name:  {nameof(SimpleCardPropertiesValidateTest)}");
+                }
+
+                logBuilder.AddLogError($"The card is Null");
                 return false;
             }
 
@@ -28,14 +34,20 @@ class SimpleCardPropertiesValidateTest : MonoBehaviour, ISceneTest
 
                 if (value.Equals(null))
                 {
-                    logMessageBuilder.AddLogError($"The card \"{card.PrefabName}\" field \"{field.Name}\" is empty or Null");
+                    if (logBuilder.HaveErrorLogs is false)
+                    {
+                        logBuilder.AddLogError($"==Info==");
+                        logBuilder.AddLogError($"Test name:  {nameof(SimpleCardPropertiesValidateTest)}");
+                    }
+
+                    logBuilder.AddLogError($"The card \"{card.PrefabName}\" field \"{field.Name}\" is empty or Null");
                 }
             }
         }
 
-        logMessageBuilder.Print();
+        logBuilder.Build();
 
-        if (logMessageBuilder.HaveErrorLogs)
+        if (logBuilder.HaveErrorLogs)
         {
             return false;
         }

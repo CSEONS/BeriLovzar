@@ -9,4 +9,5 @@ public class SimpleTrainCardScriptableObject : ScriptableObject
     public Sprite Image;
     public AudioClip Audio;
     public List<string> Tags;
+    public string Verbs;
 }
